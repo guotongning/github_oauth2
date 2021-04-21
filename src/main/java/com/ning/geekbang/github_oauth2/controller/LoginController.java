@@ -47,14 +47,13 @@ public class LoginController {
         // token换userInfo
         String userInfo = getUserInfo(accessToken);
         log.info("callback userInfo={}", userInfo);
-        modelAndView.addObject("loginMark", "SUCCESS");
         return "redirect:/home";
     }
 
     @GetMapping("/home")
     @ResponseBody
     public String home() {
-        return "Hello World";
+        return "<h1>Hello World</h1>";
     }
 
     @GetMapping("/login")
@@ -105,9 +104,7 @@ public class LoginController {
         RestTemplate restTemplate = new RestTemplate();
         // get请求方式
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, String.class);
-        String userInfo = response.getBody();
-        log.info("getAccessToken userInfo={}", userInfo);
-        return userInfo;
+        return response.getBody();
     }
 
 }
