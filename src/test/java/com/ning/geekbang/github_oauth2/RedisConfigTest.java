@@ -31,7 +31,11 @@ public class RedisConfigTest {
 
     @Test
     public void executeLuaScript() {
-        List result = luaScriptActuator.testScript();
-        result.forEach(System.out::println);
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+            luaScriptActuator.testScript();
+        }
+        long end = System.currentTimeMillis();
+        log.info("cost time = {}ms", end - start);
     }
 }
