@@ -1,1 +1,9 @@
-
+server:
+  port: 8080
+github:
+  clientId: 95ed77ce591742b6c889
+  clientSecret: 1fb067f212f72b5eb0af1b54d27af491f524b8c8
+  authorizeUrl: https://github.com/login/oauth/authorize
+  redirectUrl: http://localhost:8080/oauth2/callback
+  accessTokenUrl: https://github.com/login/oauth/access_token
+  userInfoUrl: https://api.github.com/user
